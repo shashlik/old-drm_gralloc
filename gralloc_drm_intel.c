@@ -656,9 +656,9 @@ struct gralloc_drm_drv_t *gralloc_drm_drv_create_for_intel(int fd)
 	info->fd = fd;
 	info->bufmgr = drm_intel_bufmgr_gem_init(info->fd, 16 * 1024);
 	if (!info->bufmgr) {
-		ALOGE("failed to create buffer manager");
-		free(info);
-		return NULL;
+		ALOGE("failed to create buffer manager - continuing anyway");
+// 		free(info);
+// 		return NULL;
 	}
 
 	batch_init(info);
