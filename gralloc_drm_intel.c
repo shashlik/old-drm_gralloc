@@ -659,9 +659,9 @@ struct gralloc_drm_drv_t *gralloc_drm_drv_create_for_intel(int fd)
 		ALOGE("failed to create buffer manager - continuing anyway");
 // 		free(info);
 // 		return NULL;
-	}
-
-	batch_init(info);
+	} else {
+        batch_init(info);
+    }
 
 	info->base.destroy = intel_destroy;
 	info->base.init_kms_features = intel_init_kms_features;
